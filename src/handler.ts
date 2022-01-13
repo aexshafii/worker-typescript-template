@@ -12,7 +12,7 @@
  * - If no cached version, return an error response.
  */
 
-
+ https://worker-typescript-template.alexs5425.workers.dev
 
 export async function handleRequest(event: FetchEvent): Promise<Response> {
   const {request} = event;
@@ -28,8 +28,6 @@ const response = await fetch(targetUrl)
 
 if (response.ok) {
   event.waitUntil(cache.put(cacheKey, response.clone()))
-  console.log('response')
-
   return response
 }
 
