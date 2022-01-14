@@ -8,16 +8,16 @@
  *
  * 3. Proceed to fetch the URL (https://gitpod.com/kool-site).
  * - If the response is valid (200), cache it and return it.
- * - If not, try to find a previous cached.
+ * - If not, try to find a previous cache.
  * - If no cached version, return an error response.
- */
+ *  https://worker-typescript-template.alexs5425.workers.dev
 
- https://worker-typescript-template.alexs5425.workers.dev
+ */
 
 export async function handleRequest(event: FetchEvent): Promise<Response> {
   const {request} = event;
 
-const BASE_URL = 'https://dev.finsweet.com/cache/';
+const BASE_URL = 'https://foamy.cool';
 
 const targetUrl = request.url.replace(BASE_URL, '')
 const cache = caches.default
@@ -32,7 +32,7 @@ if (response.ok) {
 }
 
 const cachedResponse = await cache.match(cacheKey)
-
+console.log(cachedResponse)
 if (cachedResponse) return cachedResponse;
-else return new Response('Errori');
+else return new Response('Error');
 }
