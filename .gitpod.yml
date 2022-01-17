@@ -3,7 +3,7 @@ image:
 
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - before: sudo sh `echo 'api_token = "DATDnKHcLcnzP89W6kfIC1ugYmUov1Ki5J-5w8do"' >> ../../gitpod/.wrangler/config/default.toml.`
+  - before: sudo sh `echo 'api_token = "DATDnKHcLcnzP89W6kfIC1ugYmUov1Ki5J-5w8do"' >> ../../home/gitpod/.wrangler/config/default.toml.`
     init: npm install # runs during prebuild
     command: npm run dev
 
