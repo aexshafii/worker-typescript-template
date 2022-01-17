@@ -16,13 +16,18 @@
 
 export async function handleRequest(event: FetchEvent): Promise<Response> {
   const {request} = event;
-
-const BASE_URL = 'https://foamy.cool';
-
+console.log(event)
+const BASE_URL = 'foamy.io';
+console.log(BASE_URL)
 const targetUrl = request.url.replace(BASE_URL, '')
+console.log(request.url)
+console.log(targetUrl)
 const cache = caches.default
 const cacheUrl = new URL(request.url)
+console.log(cacheUrl)
+
 const cacheKey = new Request(cacheUrl.toString(), request)
+console.log(cacheKey)
 
 const response = await fetch(targetUrl)
 
@@ -32,7 +37,7 @@ if (response.ok) {
 }
 
 const cachedResponse = await cache.match(cacheKey)
-console.log(cachedResponse)
+
 if (cachedResponse) return cachedResponse;
-else return new Response('Error');
+else return new Response('Error ${request.utl}');
 }
