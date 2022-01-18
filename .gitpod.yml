@@ -3,8 +3,7 @@ image:
 
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - before: sudo sh -c "mkdir -p ../../home/gitpod/.wrangler/config" && sudo sh -c "echo 'api_token = "DATDnKHcLcnzP89W6kfIC1ugYmUov1Ki5J-5w8do"' >> ../../home/gitpod/.wrangler/config/default.toml."
-    init: npm install # runs during prebuild
+  - init: npm install # runs during prebuild
     command: npm run dev
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
